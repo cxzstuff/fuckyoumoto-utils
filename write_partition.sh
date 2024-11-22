@@ -25,7 +25,7 @@ if [[ ! -f "$file_path" ]]; then
     exit 1
 fi
 
-mtk w "$p_name" "$file_path" --preloader "$PRELOADER" --loader "$LOADER" --auth "./auth_sv5.auth"
+mtk w "$p_name" "$file_path" --preloader "$PRELOADER" --loader "$LOADER"
 
 if [[ $? -eq 0 ]]; then
     echo "Write data successful for partition $p_name"
