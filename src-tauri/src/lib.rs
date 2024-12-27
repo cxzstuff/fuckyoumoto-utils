@@ -9,6 +9,8 @@ use tokio::sync::Mutex;
 use lazy_static::lazy_static;
 use tauri::Window;
 use tauri::async_runtime::spawn;
+use tauri_api::dialog;
+use tauri_api::dialog::Response;
 
 lazy_static! {
     pub static ref PROCESS_PID: Arc<Mutex<Option<u32>>> = Arc::new(Mutex::new(None));
@@ -85,12 +87,23 @@ async fn run_command(command: String, window: Window) -> Result<(), String> {
     Ok(())
 }
 
+#[tauri::command]
+fn open_file_dialog() -> Result<Option<String>, String> {
+    let dialog = dialog::select(Some(""), Some("")).map_err(|e| e.to_string())?;
+
+    match dialog {
+        Response::Okay(file) => Ok(Some(file)),
+        Response::OkayMultiple(_) | Response::Cancel => Ok(None)
+    }
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
-            run_command
+            run_command,
+            open_file_dialog
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
