@@ -17,7 +17,7 @@ PARTITIONS = [
 
 def backup_partition(partition, backup_dir):
     output_file = os.path.join(backup_dir, f"{partition}.img")
-    print(f"Backup partition - [{partition}]")  # Эту строку можно удалить, если не нужно
+    print(f"Backup partition - [{partition}]") 
 
     try:
         subprocess.run(
@@ -28,7 +28,6 @@ def backup_partition(partition, backup_dir):
         print(f"Error: Failed to create partition backup {partition}.")
         print(f"Error details: {e.stderr.decode()}")
 
-# Основная функция
 def main():
     # Read gpt partitions output to keep the phone in DA mode
     da.print_gpt()
