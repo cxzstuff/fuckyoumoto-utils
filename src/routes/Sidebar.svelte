@@ -4,7 +4,7 @@
     const items = [
         {
             title: "Home",
-            link: "/mtkclient"
+            link: "/"
         },
         {
             title: "MTKCLIENT",

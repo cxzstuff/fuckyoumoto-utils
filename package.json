@@ -13,9 +13,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@tauri-apps/api": "^2",
+    "@tauri-apps/api": "^2.1.1",
     "@tauri-apps/plugin-opener": "^2",
-    "svelte-google-materialdesign-icons": "^1.0.5"
+    "marked": "^15.0.4",
+    "snarkdown": "^2.0.0",
+    "svelte-google-materialdesign-icons": "^1.0.5",
+    "svelte-markdown": "^0.4.1",
+    "svelte-preprocess": "^6.0.3",
+    "vite-plugin-md": "^0.21.5"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.6",
