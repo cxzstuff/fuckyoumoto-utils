@@ -1,8 +1,5 @@
-#!/usr/bin/env python3
-
 import sys
 import time
-import glob
 import serial
 import serial.tools.list_ports
 
@@ -34,15 +31,25 @@ if __name__ == '__main__':
             print('PORT:', port)
             print('Initializing port:', port)
             ser = serial.Serial(port=port, baudrate=115200)
+
             try:
                 resp = ser.read(5) # Expect 5 bytes, since the output will be “READY” if successful
                 if resp == READYCMD:
                     ser.write(BOOTMODE)
-                    print("{} cmd sent".format(BOOTMODE))
+                    print(f"{BOOTMODE} cmd sent")
                     abort = True
                     break
                 else:
+                    print(f"Error: {resp}")
+                    sys.exit(2)
+
+            except serial.SerialException as e:
+                print(f"Serial error: {e}")
+                sys.exit(3)
+            except Exception as e:
+                print(f"Unexpected error: {e}")
+                sys.exit(4)
+
+            finally:
+                if ser.is_open:
                     ser.close()
-            except:
-                print('No READY signal, next port.')
-                continue
