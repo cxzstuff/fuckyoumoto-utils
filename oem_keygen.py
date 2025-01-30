@@ -20,7 +20,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     if not len(sys.argv[1]) == 32:
-        print("Key must be 32 characters long.)
+        print("Key must be 32 characters long.")
         sys.exit(1)
 
     oem_keygen(sys.argv[1])
