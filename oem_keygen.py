@@ -14,9 +14,13 @@ def oem_keygen(key: str) -> str:
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
+    if not len(sys.argv) == 2:
         print("Usage: python3 oem_keygen.py <key>")
         print("First run `fastboot oem get_key` to get the key")
         sys.exit(0)
+
+    if not len(sys.argv[1]) == 32:
+        print("Key must be 32 characters long.)
+        sys.exit(1)
 
     oem_keygen(sys.argv[1])
