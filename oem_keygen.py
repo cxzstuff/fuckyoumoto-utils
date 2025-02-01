@@ -3,13 +3,10 @@ from hashlib import sha256
 
 def oem_keygen(key: str) -> str:
     to_hash: str = key * 2
-    print("To hash: ", to_hash)
 
     hash: str = sha256(to_hash.encode()).hexdigest()
 
-    print("Hash: ", hash)
-    print("Possible keys:\n%s\n%s" % (hash[:32], hash[32:]))
-    print("Capitalized:\n%s\n%s" % (hash[:32].upper(), hash[32:].upper()))
+    print("Unlock key: %s" % (hash[:32]))
     return hash
 
 
