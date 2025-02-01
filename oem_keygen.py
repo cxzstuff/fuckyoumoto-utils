@@ -14,6 +14,9 @@ if __name__ == "__main__":
     if not len(sys.argv) == 2:
         print("Usage: python3 oem_keygen.py <key>")
         print("First run `fastboot oem get_key` to get the key")
+        print("") 
+        print("For any doubt, head to penangf.fuckyoumoto.xyz")
+        print("Keygen by Shomy. Tested by DiabloSat and the Helio G85 telegram group.")
         sys.exit(0)
 
     if not len(sys.argv[1]) == 32:
