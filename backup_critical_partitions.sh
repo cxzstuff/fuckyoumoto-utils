@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Path to Preloader, loader
-PRELOADER="./sources/preloader_penangf.bin"
-LOADER="./sources/MT6768_USER.bin"
+PRELOADER="./sources/penangf/preloader_penangf.bin"
+LOADER="./sources/penangf/MT6768_USER.bin"
 
 # Backup out dir
 BACKUP_DIR="backups"

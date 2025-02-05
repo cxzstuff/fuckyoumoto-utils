@@ -1,13 +1,13 @@
 import subprocess
 #import da
 
-ELABLE_PATH="./sources/unlock_elable.img"
+ELABLE_PATH="./sources/penangf/unlock_elable.img"
 
 def unlock_elable():
     try:
         subprocess.run(["mtk", "w", "elable", ELABLE_PATH
-            , "--preloader", "./sources/preloader_penangf.bin"
-            , "--loader", "./sources/MT6768_USER.bin"
+            , "--preloader", "./sources/penangf/preloader_penangf.bin"
+            , "--loader", "./sources/penangf/MT6768_USER.bin"
         ], check=True)
 
         print("Carrier unlocked successfully.")
