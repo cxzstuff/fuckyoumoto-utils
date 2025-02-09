@@ -16,7 +16,7 @@ class Device:
         return self.code_name
 
     def get_preloader_path(self) -> str:
-        return f"sources/{self.code_name}/{self.preloader}"
+        return f"{get_sources_path()}/{self.code_name}/{self.preloader}"
     
     def get_da_path(self, index: int) -> str:
         print(len(self.da) - 1)
