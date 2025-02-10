@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Path to Preloader, loader
+# Variables representing paths to Preloader, loader
 PRELOADER="./sources/penangf/preloader_penangf.bin"
 LOADER="./sources/penangf/MT6768_USER.bin"
 
-# Backup out dir
+# Backup output directory (where to save backup files)
 BACKUP_DIR="backups"
 mkdir -p "$BACKUP_DIR"
 
+# List of partitions to be backed up
 PARTITIONS=(
     "misc"
     "para"
@@ -53,22 +54,22 @@ PARTITIONS=(
     "flashinfo"
 )
 
-# backup partiotion create command
+# Displays the status of partition backups and informs about errors, also puts files in the backup directory
 backup_partition() {
     local partition="$1"
     local output_file="$BACKUP_DIR/${partition}.img"
-    echo "Backup partition - [$partition]"
+    echo "Backing up partition - [$partition]"
     mtk r "$partition" "$output_file" --preloader "$PRELOADER" --loader "$LOADER"
     if [[ $? -ne 0 ]]; then
-        echo "Error: Failed to create partition backup $partition."
+        echo "Error: Failed to create partition $partition backup."
     else
         echo "Backup of $partition successfully saved to $output_file."
     fi
 }
 
-# run backup all partitions
+# Run the backup payload for all listed partitions
 for partition in "${PARTITIONS[@]}"; do
     backup_partition "$partition"
 done
 
-echo "Backup completed. All files saved to $BACKUP_DIR."
+echo "Backup completed. All files have been saved to the $BACKUP_DIR backup directory."
