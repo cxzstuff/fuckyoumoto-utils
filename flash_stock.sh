@@ -39,6 +39,15 @@ echo "[STEP] Flashing boot"
 echo ""
 fastboot flash boot "$FIRMWARE_DIR/boot.img"
 
+if [ -f "$FIRMWARE_DIR/vendor_boot.img" ]; then
+    echo ""
+    echo "[STEP] Flashing vendor_boot"
+    echo ""
+    fastboot flash vendor_boot "$FIRMWARE_DIR/vendor_boot.img"
+else
+    echo "[INFO] vendor_boot.img not found, skipping..."
+fi
+
 echo ""
 echo "[STEP] Flashing all other partitions"
 echo ""
