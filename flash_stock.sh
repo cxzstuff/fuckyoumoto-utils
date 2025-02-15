@@ -68,6 +68,7 @@ echo ""
 
 fastboot erase userdata
 fastboot erase metadata
+fastboot erase md_udc
 
 echo ""
 echo "Flashing completed successfully!"
