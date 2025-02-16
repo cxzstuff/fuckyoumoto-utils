@@ -26,6 +26,7 @@ echo "[STEP] Flashing the bootloader"
 echo ""
 
 fastboot flash lk "$FIRMWARE_DIR/lk.img"
+fastboot flash dtbo "$FIRMWARE_DIR/dtbo.img"
 fastboot reboot bootloader
 
 echo ""
@@ -56,7 +57,6 @@ fastboot flash md1img "$FIRMWARE_DIR/md1img.img"
 fastboot flash scp "$FIRMWARE_DIR/scp.img"
 fastboot flash spmfw "$FIRMWARE_DIR/spmfw.img"
 fastboot flash sspm "$FIRMWARE_DIR/sspm.img"
-fastboot flash dtbo "$FIRMWARE_DIR/dtbo.img"
 fastboot flash gz "$FIRMWARE_DIR/gz.img"
 fastboot flash tee "$FIRMWARE_DIR/tee.img"
 
