@@ -55,8 +55,11 @@ class MTKClientWrapper:
                 continue
             # with open(f"{dump_path}/{pname}.bin", "wb"):
             #     pass
+            parttype: str = "user"
+            if pname == "preloader":
+                parttype = "boot1"
 
-            self.call_mtk_client("ro", data["address"], data["size"], f"{dump_path}{pname}.bin", use_loader=True)
+            self.call_mtk_client("ro", data["address"], data["size"], f"{dump_path}{pname}.bin --parttype {parttype}", use_loader=True)
 
         self.call_mtk_client("reset")
         print("FULL DUMP DONE")
