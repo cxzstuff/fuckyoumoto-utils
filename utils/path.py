@@ -1,9 +1,7 @@
 import os
 
 def get_sources_path():
-    return os.path.dirname(os.path.abspath(__file__).replace("utils", "sources"))
-
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "sources"))
 
 def get_root_path():
-    return os.path.dirname(os.path.abspath(__file__).replace("utils/path.py", ""))
-    
+    return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
