@@ -11,7 +11,7 @@ DEVICES: dict = {
     "fogorow":
     {
         "da_files": ["DA_SWSEC_2316_p325a_dl_forbidden3.bin", "DA_SWSEC_2316_p325a.bin"],
-        "preloader": "preloader_p235a.bin",
+        "preloader": "preloader_p325a.bin",
         "scatter": "MT6768_Android_scatter.txt",
         "partition_scheme": "fogorow_partitions.csv",
         "has_unlock_method": False, # Have to get engineering DA first, but can be unlocked: https://fogorow.fuckyoumoto.xyz/dev/bootloader
