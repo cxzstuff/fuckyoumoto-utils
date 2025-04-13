@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "frostix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744498649,
+        "narHash": "sha256-lB5X4tUFrblHBY9xxZUNmtWMcDkoqym+DG14B8UyIcw=",
+        "owner": "shomykohai",
+        "repo": "frostix",
+        "rev": "7ee614ba845e368d463f4a9041062c7314f64ee9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shomykohai",
+        "repo": "frostix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1744232761,
+        "narHash": "sha256-gbl9hE39nQRpZaLjhWKmEu5ejtQsgI5TWYrIVVJn30U=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "frostix": "frostix",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
