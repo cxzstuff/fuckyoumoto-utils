@@ -3,6 +3,10 @@ import time
 import serial
 import serial.tools.list_ports
 
+if len(sys.argv) < 2:
+    print("Usage: mtkbootcmd.py <BOOTMODE>")
+    sys.exit(1)
+
 PLBROM_HWID = "VID:PID=0E8D:2000"
 BOOTMODE = bytes(sys.argv[1], "ascii")
 READYCMD = b"READY"
@@ -18,9 +22,6 @@ def serial_port():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: mtkbootcmd.py <BOOTMODE>")
-        sys.exit(1)
     print('Listening for ports!')
 
     abort = False
